@@ -4,6 +4,7 @@ require 'httparty'
 
 class BOSHCliInstall < Sinatra::Base
   attr_reader :github_access_token
+  attr_reader :cli_release_version
 
   def initialize(*args)
     super
@@ -55,8 +56,15 @@ class BOSHCliInstall < Sinatra::Base
 
   def fetch_latest_release
     latest_cli_release = cli_releases.first
+    @cli_release_tag = latest_cli_release["tag_name"]
+
+    # strip leading v in v1.1234.0 which isn't included in download URL
+    if @cli_release_tag =~ /v(.*)/
+      @cli_release_version = $1
+    else
+      @cli_release_version = @cli_release_tag
+    end
     @cli_release_name = latest_cli_release["name"]
-    @cli_release_assets = latest_cli_release["assets"]
   end
 
   def cli_release_name
@@ -73,10 +81,6 @@ class BOSHCliInstall < Sinatra::Base
     'https://api.github.com/repos/cloudfoundry-community/traveling-bosh/releases'
   end
 
-  def cli_release_version
-    "v1.1887.0"
-  end
-
   def cli_releases_headers
     raise "Must set @github_access_token first" unless github_access_token
     { headers: { "Authorization" => "token #{github_access_token}", "User-Agent" => "bosh_cli_install by Dr Nic Williams" } }
@@ -87,7 +91,7 @@ class BOSHCliInstall < Sinatra::Base
     hostname.gsub(/:80/, '')
   end
 
-  def curl_cmd
+  def curl_uri
     cmd = "https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer"
     if request_hostname =~ %r{^http://bosh-cli.cloudfoundry.org}
       cmd = "#{cmd} #{request_hostname}"
