@@ -7,8 +7,8 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 150%;
   line-height: 1.4;
-  color: #f6e6cc;
-  background: #68A0D1;
+  color: #043042;
+  background: #ffffff;
   position: relative;
   padding: 0 30px;
 }
@@ -52,13 +52,13 @@ h2 {
 
 h1 a,
 h1 a:hover {
-  color: #063B7F;
+  color: #2d2f31;
   font-weight: normal;
   text-decoration: none;
 }
 
 #subtitle {
-  color: #2C3F7D;
+  color: #474d5a;
 }
 
 #wrap {
@@ -111,7 +111,7 @@ pre code {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 2em 20px 0;
 }
- 
+
 #informations .row .col-1 {
   width: 49%;
   float: left;
