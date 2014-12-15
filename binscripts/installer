@@ -104,7 +104,7 @@ ln -s $bin_dir/$tar_filename bosh-cli
 
 cd $current_path
 
-echo "Installed: $($bin_dir/bosh_cli/bosh --version)"
+echo "Installed: $($bin_dir/bosh-cli/bosh --version)"
 echo
 echo "Please restart your terminal session or to get started right away run:"
 echo " source ${source_file}"
