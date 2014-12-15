@@ -50,12 +50,25 @@
       <li>
         <div class="group row">
           <h2>Install CLI for OS/X and Linux</h2>
-          <pre style="clear:both;text-align:center;margin:0 -3em;margin-bottom:0.9em"><code id="selectable" onclick="selectText()">curl -k -s <%= curl_uri %> | bash -s <%= cli_release_version %></code></pre>
+          <pre style="clear:both;text-align:center;margin:0 -3em;margin-bottom:0.9em"><code class="selectable" id="selectable-curl" onclick="selectText('selectable-curl')">curl -k -s <%= curl_uri %> | bash -s <%= cli_release_version %></code></pre>
           <div class="col-1">
-            <p>Paste that at a Terminal prompt.</p>
+            <p>Paste into Terminal prompt.</p>
           </div>
           <div class="col-2">
             <p>The script only places the <code><%= cli_name %></code> executable in your current folder.</p>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="group row">
+          <h2>Install with RubyGems</h2>
+          <pre style="clear:both;text-align:center;margin:0 -3em;margin-bottom:0.9em"><code class="selectable" id="selectable-gem" onclick="selectText('selectable-gem')">gem install bosh_cli_plugin_micro</code></pre>
+          <div class="col-1">
+            <p>Paste into Terminal prompt.</p>
+          </div>
+          <div class="col-2">
+            <p>BOSH CLI requires Ruby 2.1+</p>
           </div>
         </div>
       </li>
@@ -67,7 +80,11 @@
             <p>
               <a href="http://bosh.cloudfoundry.org/">BOSH Homepage</a>
               &nbsp;
+              <a href="https://groups.google.com/a/cloudfoundry.org/forum/#!forum/bosh-users">BOSH Users Mailing list</a>
+              &nbsp;
               <a href="http://docs.cloudfoundry.org/bosh/">BOSH Documentation</a>
+              &nbsp;
+              <a href="https://github.com/cloudfoundry-community/traveling-bosh">Traveling BOSH</a>
             </p>
           </div>
         </div>

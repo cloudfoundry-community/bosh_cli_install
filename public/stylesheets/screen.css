@@ -45,7 +45,7 @@ h1, h2 {
 h2 {
 	font-size: 300%;
 	text-align: center;
-	color: #063B7F;
+	color: #2d2f31;
 	margin-top: 0.5em;
 	margin-bottom: 0.1em;
 }
@@ -89,7 +89,7 @@ pre code {
   line-height: 1.6;
 }
 
-#selectable {
+.selectable {
   font-size: 1.6em;
 }
 
@@ -130,21 +130,30 @@ pre code {
 }
 
 #informations .button a {
-  background: #A7BDDB;
   padding: 8px 10px 6px;
-  border-radius: 0.4em;
-  -moz-border-radius: 0.4em;
-  -webkit-border-radius: 0.4em;
-  box-shadow: 0 0 5px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4);
   text-decoration: none;
-  font-size: larger;
-}
+  /*display: block;*/
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.3), 0, -1px, 0;
+  text-align: center;
+  background-image: linear-gradient(#3692CF, #082FAA);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1; }
+  /* line 39, /Users/andre/src/bundler/bundler-site/source/stylesheets/application.sass */
 
 #informations .button a:hover {
-  background: #A7BDDB;
-}
+    background-image: linear-gradient(#132F86, #082FAA);
+    border-bottom: none; }
+    /* line 200, /Users/andre/src/bundler/bundler-site/source/stylesheets/application.sass */
+
+#informations .button a:last-child {
+      margin-right: 0; }
 
 #informations .button-large {
   padding: 2em 0 1em;

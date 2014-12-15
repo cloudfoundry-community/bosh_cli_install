@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="./stylesheets/screen.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="./stylesheets/fonts/chunkfive.css" type="text/css" media="screen" />
   <script type="text/javascript">
-    function selectText() {
+    function selectText(id) {
         if (document.selection) {
             var range = document.body.createTextRange();
-            range.moveToElementText(document.getElementById('selectable'));
+            range.moveToElementText(document.getElementById(id));
             range.select();
         } else if (window.getSelection) {
             var range = document.createRange();
-            range.selectNode(document.getElementById('selectable'));
+            range.selectNode(document.getElementById(id));
             window.getSelection().addRange(range);
         }
     }
