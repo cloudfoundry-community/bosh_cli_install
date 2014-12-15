@@ -99,8 +99,8 @@ fi
 
 rm -rf $tar_filename
 tar xf ${download_file}
-rm -f $bin_dir/bosh_cli
-ln -s $bin_dir/$tar_filename bosh_cli
+rm -f $bin_dir/bosh-cli
+ln -s $bin_dir/$tar_filename bosh-cli
 
 cd $current_path
 
