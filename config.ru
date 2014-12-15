@@ -1,3 +1,3 @@
-require './cf_cli_install'
+require './bosh_cli_install'
 
-run CfCliInstall.new
+run BOSHCliInstall.new

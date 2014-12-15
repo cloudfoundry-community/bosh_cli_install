@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'json/pure'
 require 'httparty'
 
-class CfCliInstall < Sinatra::Base
+class BOSHCliInstall < Sinatra::Base
   attr_reader :github_access_token
 
   def initialize(*args)
@@ -70,12 +70,16 @@ class CfCliInstall < Sinatra::Base
   end
 
   def cli_releases_uri
-    'https://api.github.com/repos/cloudfoundry/cli/releases'
+    'https://api.github.com/repos/cloudfoundry-community/traveling-bosh/releases'
+  end
+
+  def cli_release_version
+    "v1.1887.0"
   end
 
   def cli_releases_headers
     raise "Must set @github_access_token first" unless github_access_token
-    { headers: { "Authorization" => "token #{github_access_token}", "User-Agent" => "cf_cli_install by Dr Nic Williams" } }
+    { headers: { "Authorization" => "token #{github_access_token}", "User-Agent" => "bosh_cli_install by Dr Nic Williams" } }
   end
 
   def request_hostname
@@ -84,10 +88,10 @@ class CfCliInstall < Sinatra::Base
   end
 
   def curl_cmd
-    if request_hostname =~ %r{^http://cli.cloudfoundry.org}
-      "https://raw.github.com/cloudfoundry-community/cf_cli_install/master/binscripts/cf-installer"
+    if request_hostname =~ %r{^http://bosh-cli.cloudfoundry.org}
+      "https://raw.github.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer"
     else
-      "https://raw.github.com/cloudfoundry-community/cf_cli_install/master/binscripts/cf-installer #{request_hostname}"
+      "https://raw.github.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer #{request_hostname}"
     end
   end
 
@@ -109,6 +113,6 @@ class CfCliInstall < Sinatra::Base
   end
 
   def cli_name
-    "gcf"
+    "bosh"
   end
 end
