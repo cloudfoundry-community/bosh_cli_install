@@ -20,6 +20,12 @@ class BOSHCliInstall < Sinatra::Base
     erb :index, format: :html5
   end
 
+  get '/latest_version' do
+    fetch_latest_release
+    cli_release_version
+  end
+
+
   def fetch_latest_release
     latest_cli_release = cli_releases.first
     @cli_release_tag = latest_cli_release["tag_name"]
