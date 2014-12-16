@@ -13,8 +13,7 @@ os_hardware=$(uname -m)
 
 current_path=$(pwd)
 
-cli_version=${1:-1.2788.0}
-bin_dir=$2
+bin_dir=$1
 if [ "$bin_dir" == "" ]; then
   if [[ $EUID -ne 0 ]]; then
     bin_dir="$HOME/bin"
@@ -24,7 +23,6 @@ if [ "$bin_dir" == "" ]; then
     source_line="export PATH=\$PATH:${bin_dir}/bosh-cli"
   fi
 fi
-
 
 display_error() {
   tput sgr0
@@ -51,6 +49,8 @@ update_profile() {
   linux: apt-get install curl
   mac:   brew install curl
 "
+
+cli_version=$(curl -s https://bosh-cli.cfapps.io/latest_version)
 
 if [ "$os_name" == "Linux" ]; then
   update_profile $HOME/.zshrc || update_profile $HOME/.bashrc || update_profile $HOME/.bash_profile
@@ -88,7 +88,7 @@ download_url="https://github.com/cloudfoundry-community/traveling-bosh/releases/
 # https://github.com/cloudfoundry-community/traveling-bosh/releases/download/v1.2788.0/bosh_cli-1.2788.0-linux-x86.tar.gz
 # https://github.com/cloudfoundry-community/traveling-bosh/releases/download/v1.2788.0/bosh_cli-1.2788.0-linux-x86_64.tar.gz
 # https://github.com/cloudfoundry-community/traveling-bosh/releases/download/v1.2788.0/bosh_cli-1.2788.0-osx.tar.gz
-echo "Downloading..."
+echo "Downloading v${cli_version}..."
 curl -k -L -H "Accept: application/octet-stream" $download_url -o ${download_file}
 
 cd $bin_dir
