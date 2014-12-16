@@ -11,6 +11,8 @@ This supports OS X and 32 & 64-bit Linux.
 
 Run either as a normal user or superuser. The former will install into `~/bin/bosh-cli`; the latter will install into `/usr/bin/bosh-cli`.
 
+For OS X and 64-bit Linux, the `spiff` helper for creating BOSH manifests will also be installed into your `$PATH`.
+
 Test installers
 ---------------
 
@@ -22,14 +24,9 @@ cd /tmp/lucid64
 vagrant init lucid64 http://files.vagrantup.com/lucid64.box
 vagrant up
 vagrant ssh
-sudo apt-get update
-sudo apt-get install curl -y
-
-curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer | bash -s 1.2788.0
-
-source /home/vagrant/.bashrc
-bosh
 ```
+
+For 32-bit:
 
 ```
 mkdir -p /tmp/lucid32
@@ -37,11 +34,22 @@ cd /tmp/lucid32
 vagrant init lucid32 http://files.vagrantup.com/lucid32.box
 vagrant up
 vagrant ssh
+```
+
+Inside either VM, run:
+
+```
 sudo apt-get update
 sudo apt-get install curl -y
 
-curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer | bash -s 1.2788.0
+curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer | bash
 
 source /home/vagrant/.bashrc
 bosh
+```
+
+On the 64-bit machines, `spiff` will also be installed:
+
+```
+spiff
 ```
