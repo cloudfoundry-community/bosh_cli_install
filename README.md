@@ -25,7 +25,7 @@ vagrant ssh
 sudo apt-get update
 sudo apt-get install curl -y
 
-curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer | bash
+curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer | bash -s 1.2788.0
 
 source /home/vagrant/.bashrc
 bosh
@@ -40,7 +40,7 @@ vagrant ssh
 sudo apt-get update
 sudo apt-get install curl -y
 
-curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer | bash
+curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer | bash -s 1.2788.0
 
 source /home/vagrant/.bashrc
 bosh
