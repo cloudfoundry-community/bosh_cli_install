@@ -63,6 +63,10 @@ elif [ "$os_name" == "Darwin" ]; then
   update_profile $HOME/.zshrc || update_profile $HOME/.profile || update_profile $HOME/.bash_profile
   download_platform="osx"
 fi
+if [[ $EUID -eq 0 ]]; then
+  update_profile "/etc/bash.bashrc"
+fi
+
 tar_filename="bosh_cli-${cli_version}-${download_platform}"
 asset_filename="bosh-cli.tgz"
 
