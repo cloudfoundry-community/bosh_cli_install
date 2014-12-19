@@ -17,10 +17,10 @@ bin_dir=$1
 if [ "$bin_dir" == "" ]; then
   if [[ $EUID -ne 0 ]]; then
     bin_dir="$HOME/bin"
-    source_line="export PATH=\$PATH:\$HOME/bin/bosh-cli"
+    source_line="export PATH=\$PATH:\$HOME/bin/traveling-bosh"
   else
     bin_dir="/usr/bin"
-    source_line="export PATH=\$PATH:${bin_dir}/bosh-cli"
+    source_line="export PATH=\$PATH:${bin_dir}/traveling-bosh"
   fi
 fi
 
@@ -103,12 +103,12 @@ fi
 
 rm -rf $tar_filename
 tar xf ${download_file}
-rm -f $bin_dir/bosh-cli
-ln -s $bin_dir/$tar_filename bosh-cli
+rm -f $bin_dir/traveling-bosh
+ln -s $bin_dir/$tar_filename traveling-bosh
 
 cd $current_path
 
-echo "Installed: $($bin_dir/bosh-cli/bosh --version)"
+echo "Installed: $($bin_dir/traveling-bosh/bosh --version)"
 echo
 echo "Please restart your terminal session or to get started right away run:"
 echo " source ${source_file}"

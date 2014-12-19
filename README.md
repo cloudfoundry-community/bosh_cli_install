@@ -9,7 +9,7 @@ curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_ins
 
 This supports OS X and 32 & 64-bit Linux.
 
-Run either as a normal user or superuser. The former will install into `~/bin/bosh-cli`; the latter will install into `/usr/bin/bosh-cli`.
+Run either as a normal user or superuser. The former will install into `~/bin/traveling-bosh`; the latter will install into `/usr/bin/traveling-bosh`.
 
 For OS X and 64-bit Linux, the `spiff` helper for creating BOSH manifests will also be installed into your `$PATH`.
 
