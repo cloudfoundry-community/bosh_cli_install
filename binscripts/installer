@@ -106,6 +106,8 @@ tar xf ${download_file}
 rm -f $bin_dir/traveling-bosh
 ln -s $bin_dir/$tar_filename traveling-bosh
 
+./traveling-bosh/helpers/rewrite-shebangs.sh
+
 cd $current_path
 
 echo "Installed: $($bin_dir/traveling-bosh/bosh --version)"
