@@ -64,7 +64,7 @@ class BOSHCliInstall < Sinatra::Base
   end
 
   def curl_uri
-    cmd = "https://raw.githubusercontent.com/cloudfoundry-community/bosh_cli_install/master/binscripts/installer"
+    cmd = "https://raw.githubusercontent.com/cloudfoundry-community/traveling-bosh/master/scripts/installer"
     if request_hostname =~ %r{^http://bosh-cli.cloudfoundry.org}
       cmd = "#{cmd} #{request_hostname}"
     end
