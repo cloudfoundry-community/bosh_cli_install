@@ -4,7 +4,7 @@ One-line installer for BOSH CLI
 The BOSH CLI is distributed as a RubyGem requiring a modern Ruby 2.1+. If your target machine does not have a modern Ruby installed; or if you are unsure; then you can run the following:
 
 ```
-curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/traveling-bosh/master/scripts/installer | bash
+curl -s https://raw.githubusercontent.com/cloudfoundry-community/traveling-bosh/master/scripts/installer | bash
 ```
 
 This supports OS X and 32 & 64-bit Linux.
@@ -42,7 +42,7 @@ Inside either VM, run:
 sudo apt-get update
 sudo apt-get install curl -y
 
-curl -k -s https://raw.githubusercontent.com/cloudfoundry-community/traveling-bosh/master/scripts/installer | bash
+curl -s https://raw.githubusercontent.com/cloudfoundry-community/traveling-bosh/master/scripts/installer | bash
 
 source /home/vagrant/.bashrc
 bosh
